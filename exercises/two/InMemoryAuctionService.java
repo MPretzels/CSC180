@@ -23,7 +23,7 @@ public class InMemoryAuctionService implements AuctionService {
 		int id;
 		String name;
 		int bid;
-		Auction returnAuction = new Auction(id, name, bid);
+		//Auction returnAuction = new Auction(id, name, bid);
 		if (criteria != null || criteria != "") {
 			for (Auction auction : auctions) {
 				if (auction.getName().equals(criteria)) {
