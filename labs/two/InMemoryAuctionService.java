@@ -8,10 +8,10 @@ import java.util.Stack;
 
 public class InMemoryAuctionService implements AuctionService {
 
-	Auction a = new Auction(1000, "Broccoli", 20, "Green Veggie");
-	Auction b = new Auction(2777, "Human Foot", 3, "singular attachment of a biped creature");
-	Auction c = new Auction(7319, "Scott's service", 1, "Various techniques");
-	Auction d = new Auction(2565, "Chess set", 50, "knowledgable game set");
+	Auction a = new Auction(1000, "broccoli", 20, "Green Veggie");
+	Auction b = new Auction(2777, "human Foot", 3, "singular attachment of a biped creature");
+	Auction c = new Auction(7319, "scott's service", 1, "Various techniques");
+	Auction d = new Auction(2565, "chess set", 50, "knowledgable game set");
 	
 	static Map<Integer, Auction> auctions = new HashMap<Integer, Auction>();
 	
@@ -80,7 +80,7 @@ public class InMemoryAuctionService implements AuctionService {
 		int counter = 0;
 		Auction stuffz = null;
 		for (Auction auction : auctions.values()) {
-			 stuffz = new Auction(a.getId(),	a.getName(), a.getCurrentBid(), a.getDescription(), a.getProperties());
+			 stuffz = new Auction(a.getName(), a.getCurrentBid(), a.getDescription());
 			auctions.put(a.getId(), stuffz);
 			counter++;
 		}

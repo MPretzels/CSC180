@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Auction {
 	
-	private final int id;
+	private int id;
 	private int currentBid;
 	private String owner;
 	private String name;
@@ -34,12 +34,10 @@ public class Auction {
 		this.description = description;
 	}
 	
-	public Auction(int id, String name, int currentBid, String description, Map<String, Object> properties) {
-		this.id = id;
+	public Auction(String name, int currentBid, String description) {
 		this.name = name;
 		this.currentBid = currentBid;
 		this.description = description;
-		this.properties = properties;
 	}
 	
 	public int getId() {

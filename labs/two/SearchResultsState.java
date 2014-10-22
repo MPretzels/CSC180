@@ -15,10 +15,14 @@ public class SearchResultsState implements State {
 		Scanner scan = new Scanner(System.in);
 		System.out.println(daString + " , Results");
 		for (Auction auction : auc) {
-			if (auction.getOwner() != null) {
-				System.out.println(auction.getId() + "     " + auction.getName() + "     " + auction.getCurrentBid() + "     " + auction.getOwner());
-			} else {
-				System.out.println(auction.getId() + "     " + auction.getName() + "     " + auction.getCurrentBid());
+			try {
+				if (auction.getOwner() != null) {
+					System.out.println(auction.getId() + "\t " + auction.getName() + "\t" + auction.getCurrentBid() + "\t" + auction.getOwner());
+				} else {
+					System.out.println(auction.getId() + "\t" + auction.getName() + "\t" + auction.getCurrentBid());
+				}
+			} catch (NullPointerException ex) {
+				
 			}
 		}
 		System.out.println("Enter the item id to increase the bid by $1. If not, please enter another search value: (press enter to go back to the home page");
