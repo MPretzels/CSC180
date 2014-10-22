@@ -2,7 +2,7 @@
 public interface AuctionService {
 	
 	public Auction[] search(String criteria);
-	public Auction bid(String username, Integer itemId);
+	public void bid(String username, Integer itemId);
 	
 	Auction create(Auction obj);
 	Auction retreive(Integer id);

@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 
-public class CollectionUtils {
+public class CollectionUtils<T> {
 	
 	public static int cardinality(java.lang.Object obj, java.util.Collection coll) {
 		
@@ -17,14 +19,15 @@ public class CollectionUtils {
 		
 	}
 	
-	public static void main(String[] args) {
-		List<Integer> numbers = new ArrayList<Integer>();
-		numbers.add(1);
-		numbers.add(2);
-		numbers.add(1);
-		numbers.add(3);
-		
-		
-		System.out.println("There are " + cardinality(1, numbers) + " 1's in the collection");
+	public static <T> Collection<T> filter(Collection<T> coll, Predicate<T> p) {
+		List<T> newColl = new ArrayList<T>();
+		for (T t : coll) {
+			if(p.evaluate(t)) {
+				newColl.add(t);
+			}
+		}
+		return newColl;
 	}
+	
+	
 }

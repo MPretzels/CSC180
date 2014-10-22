@@ -11,8 +11,13 @@ public class UserHomeState implements State {
 	@Override
 	public void show() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println(disString + "Enter a search value. (press enter to log out");
-		input = scan.nextLine();
+		System.out.println(disString + " Enter a search value. If you want to create an item press 1 (press enter to log out)");
+		input = scan.nextLine().toLowerCase();
+		if (input.equals("1")) {
+			AuctionCreateState acs = new AuctionCreateState();
+			acs.show();
+			show();
+		} 
 		if (!input.equals("")) {
 			user = true;
 			auc = loop.service.search(input);
@@ -28,5 +33,10 @@ public class UserHomeState implements State {
 		} else {
 			return null;
 		}
+	}
+	
+	public String[] parseStuff(String parseInput) {
+		parseInput.split("or");
+		return new String[1];
 	}
 }

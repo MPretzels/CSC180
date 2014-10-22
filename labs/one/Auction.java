@@ -4,10 +4,11 @@ import java.util.Map;
 
 public class Auction {
 	
-	private final int id;
+	private int id;
 	private int currentBid;
 	private String owner;
 	private String name;
+	private String description;
 	private Map<String, Object> properties = new HashMap<String, Object>();
 	
 	public <T> T getProperty(String propertyName, Class<T> propertyType) {
@@ -26,17 +27,17 @@ public class Auction {
 		return properties;
 	}
 	
-	public Auction(int id, String name, int currentBid) {
+	public Auction(int id, String name, int currentBid, String description) {
 		this.id = id;
 		this.name = name;
 		this.currentBid = currentBid;
+		this.description = description;
 	}
 	
-	public Auction(int id, String name, int currentBid, Map<String, Object> properties) {
-		this.id = id;
+	public Auction(String name, int currentBid, String description) {
 		this.name = name;
 		this.currentBid = currentBid;
-		this.properties = properties;
+		this.description = description;
 	}
 	
 	public int getId() {
@@ -69,6 +70,14 @@ public class Auction {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	public int hashCode() {
